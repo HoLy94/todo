@@ -105,6 +105,7 @@ ul.todo-list {
   ul.todo-list li.checked {
     text-decoration: line-through;
     background-color: #1266f1;
+    color: #cccccc;
     width: 90%; }
     ul.todo-list li.checked label.checkLabel {
       opacity: 1; }

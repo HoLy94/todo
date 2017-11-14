@@ -15,18 +15,6 @@ var items = [{
 }, {
   name: 'Alex',
   id: 2
-}, {
-  name: 'Alex',
-  id: 12
-}, {
-  name: 'Alex',
-  id: 4
-}, {
-  name: 'Alex',
-  id: 21
-}, {
-  name: 'Alex',
-  id: 19
 }];
 
 //Add new element to list
@@ -155,7 +143,7 @@ var sortById = function sortById() {
   var li = document.querySelectorAll('li');
 
   for (var i = 0; i < li.length; i++) {
-    li[i].setAttribute('style', 'order: ' + items[i].id);
+    li[i].style.order = items[i].id;
   }
 };
 
