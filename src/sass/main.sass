@@ -20,7 +20,7 @@ body
     width: 90%
     margin: 1% 0
     height: 46px
-    input
+    input.nameInput, input.idInput
       border: 2px solid transparent
       background-color: #fff
       color: #333
@@ -29,11 +29,11 @@ body
       font-size: 20px
       letter-spacing: 1px
       width: 15%
-      &:first-child
-        border-top-left-radius: 10px
-        width: 55%
       &:focus
         border-color: rgb(66, 133, 244)
+    input.nameInput
+      border-top-left-radius: 10px
+      width: 55%
 button.addBtn
   align-self: flex-end
   background-color: rgb(66, 133, 244)
