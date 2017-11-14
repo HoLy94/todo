@@ -1,48 +1,72 @@
 'use strict';
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 // import items from './items';
 // import app from './app/app';
 
 
-var app = function app() {
+var App = function App() {
+  _classCallCheck(this, App);
+
   var container = document.querySelector('.container');
+
   var list = document.createElement('ul');
-  list.classList.add('todo-list');
   var form = document.createElement('div');
-  form.classList.add('form');
-  var name1 = document.createElement('input');
-  name1.classList.add('name');
+  var nameInput = document.createElement('input');
   var id = document.createElement('input');
-  id.setAttribute('type', 'number');
-  id.classList.add('id');
   var addBtn = document.createElement('button');
-  addBtn.classList.add('addBtn');
-  addBtn.textContent = 'add';
   var span = document.createElement('span');
+
+  list.classList.add('todo-list');
+  form.classList.add('form');
+  nameInput.classList.add('nameInput');
+  id.classList.add('idInput');
+  addBtn.classList.add('addBtn');
+
+  id.setAttribute('type', 'number');
+
+  addBtn.textContent = 'add';
   span.textContent = '+';
-  form.appendChild(name1);
+
+  form.appendChild(nameInput);
   form.appendChild(id);
   addBtn.appendChild(span);
   form.appendChild(addBtn);
   container.appendChild(form);
   container.appendChild(list);
 };
-app();
 
-var items = [{ name: 'Vasyl', id: 5 }, { name: 'Anna', id: 3 }, { name: 'Mike', id: 8 }, { name: 'Alex', id: 2 }];
+var app = new App();
+
+var items = [{
+  name: 'Vasyl',
+  id: 5
+}, {
+  name: 'Anna',
+  id: 3
+}, {
+  name: 'Mike',
+  id: 8
+}, {
+  name: 'Alex',
+  id: 2
+}];
 
 var deleteElement = function deleteElement(li) {
   var ul = document.querySelector('.todo-list');
+
   for (var i = 0; i < ul.childNodes.length; i++) {
-    if (ul.childNodes[i] == li) {
+
+    if (ul.childNodes[i] === li) {
       li.classList.add('remove');
       setTimeout(function () {
-        ul.removeChild(ul.childNodes[i]);
+        return ul.removeChild(ul.childNodes[i]);
       }, 500);
       items.splice(i, 1);
       break;
-    };
-  };
+    }
+  }
 };
 
 var render = function render(item) {
@@ -64,7 +88,7 @@ var render = function render(item) {
   deleteBtn.classList.add('deleteBtn');
 
   deleteBtn.addEventListener('click', function () {
-    deleteElement(li);
+    return deleteElement(li);
   });
 
   li.textContent = '' + item.name;
@@ -76,24 +100,24 @@ var render = function render(item) {
   li.appendChild(checkLabel);
   li.appendChild(deleteBtn);
   setTimeout(function () {
-    ul.appendChild(li);
+    return ul.appendChild(li);
   }, 180);
   setTimeout(function () {
-    li.removeAttribute('class', '.add');
+    return li.removeAttribute('class', '.add');
   }, 200);
 };
 
 var defaultElements = function defaultElements() {
   for (var i = 0; i < items.length; i++) {
     render(items[i]);
-  };
+  }
 };
 
 defaultElements();
 
 var addNewElement = function addNewElement() {
-  var name = document.querySelector('.name').value;
-  var id = document.querySelector('.id').value;
+  var name = document.querySelector('.nameInput').value;
+  var id = document.querySelector('.idInput').value;
   var item = { name: name, id: +id };
 
   if (name === '' || id <= 0) {
@@ -101,8 +125,8 @@ var addNewElement = function addNewElement() {
   } else {
     items.push(item);
     render(item);
-    document.querySelector('.name').value = '';
-    document.querySelector('.id').value = '';
+    document.querySelector('.nameInput').value = '';
+    document.querySelector('.idInput').value = '';
   }
 };
 
@@ -113,7 +137,7 @@ setTimeout(function () {
   var li = document.querySelectorAll('li');
   var check = document.querySelectorAll('.check');
   var isChecked = function isChecked(li) {
-    li.classList.toggle('checked');
+    return li.classList.toggle('checked');
   };
 
   check[0].addEventListener('click', function () {

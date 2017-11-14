@@ -2,49 +2,71 @@
 // import app from './app/app';
 
 
-const app = () => {
+class App {
+
+  constructor() {
   let container = document.querySelector('.container');
+
   let list = document.createElement('ul');
-  list.classList.add('todo-list')
   let form = document.createElement('div');
-  form.classList.add('form');
-  let name1 = document.createElement('input');
-  name1.classList.add('name');
+  let nameInput = document.createElement('input');
   let id = document.createElement('input');
-  id.setAttribute('type', 'number');
-  id.classList.add('id');
   let addBtn = document.createElement('button');
-  addBtn.classList.add('addBtn');
-  addBtn.textContent = 'add';
   let span = document.createElement('span');
+
+  list.classList.add('todo-list')
+  form.classList.add('form');
+  nameInput.classList.add('nameInput');
+  id.classList.add('idInput');
+  addBtn.classList.add('addBtn');
+
+  id.setAttribute('type', 'number');
+
+  addBtn.textContent = 'add';
   span.textContent = '+';
-  form.appendChild(name1);
+
+  form.appendChild(nameInput);
   form.appendChild(id);
   addBtn.appendChild(span);
   form.appendChild(addBtn);
   container.appendChild(form);
   container.appendChild(list);
 }
-app();
+}
+const app = new App();
 
 let items = [
-  { name: 'Vasyl', id: 5 },
-  { name: 'Anna', id: 3 },
-  { name: 'Mike', id: 8 },
-  { name: 'Alex', id: 2 }
+  {
+    name: 'Vasyl',
+    id: 5,
+  },
+  {
+    name: 'Anna',
+    id: 3,
+  },
+  {
+    name: 'Mike',
+    id: 8,
+  },
+  {
+    name: 'Alex',
+    id: 2,
+  }
 ];
 
 const deleteElement = (li) => {
   let ul = document.querySelector('.todo-list');
+
   for (var i = 0; i < ul.childNodes.length; i++) {
-    if (ul.childNodes[i] == li) {
+
+    if (ul.childNodes[i] === li) {
       li.classList.add('remove');
-      setTimeout(function(){ul.removeChild(ul.childNodes[i]);}, 500);
+      setTimeout( () => ul.removeChild( ul.childNodes[i] ), 500);
       items.splice(i,1);
       break;
-    };
-  };
-};
+    }
+  }
+}
 
 const render = (item) => {
   let ul = document.querySelector('.todo-list');
@@ -64,7 +86,7 @@ const render = (item) => {
   checkLabel.classList.add('checkLabel');
   deleteBtn.classList.add('deleteBtn');
 
-  deleteBtn.addEventListener('click', function(){ deleteElement(li)});
+  deleteBtn.addEventListener('click', () => deleteElement(li) );
 
   li.textContent = `${item.name}`;
   idBadge.textContent = `${item.id}`;
@@ -74,42 +96,39 @@ const render = (item) => {
   li.appendChild(check);
   li.appendChild(checkLabel);
   li.appendChild(deleteBtn);
-  setTimeout(function(){ ul.appendChild(li);}, 180);
-  setTimeout(function(){ li.removeAttribute('class','.add');}, 200);
+  setTimeout( () => ul.appendChild(li), 180);
+  setTimeout( () => li.removeAttribute('class', '.add'), 200);
 }
 
 const defaultElements = () => {
   for (let i = 0; i < items.length; i++) {
     render(items[i]);
-  };
-};
+  }
+}
 
 defaultElements();
 
 const addNewElement = () => {
-  let name = document.querySelector('.name').value;
-  let id = document.querySelector('.id').value;
+  let name = document.querySelector('.nameInput').value;
+  let id = document.querySelector('.idInput').value;
   let item = { name: name, id: +id };
 
-  if (name === '' || id <= 0) {
-    alert('Add some text please, and id > 0')
-  } else {
+  if (name === '' || id <= 0) { alert('Add some text please, and id > 0') }
+  else {
     items.push(item);
     render(item);
-    document.querySelector('.name').value = '';
-    document.querySelector('.id').value = '';
+    document.querySelector('.nameInput').value = '';
+    document.querySelector('.idInput').value = '';
   }
-};
+}
 
 let addBtn = document.querySelector('.addBtn');
 addBtn.addEventListener('click', addNewElement);
 
-setTimeout(function(){
+setTimeout( () => {
   let li = document.querySelectorAll('li');
   let check = document.querySelectorAll('.check');
-  const isChecked = (li) => {
-    li.classList.toggle('checked');
-  }
+  const isChecked = (li) => li.classList.toggle('checked');
 
   check[0].addEventListener('click', function() {isChecked(li[0])} );
   check[1].addEventListener('click', function() {isChecked(li[1])} );
