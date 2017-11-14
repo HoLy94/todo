@@ -2,9 +2,32 @@
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// import items from './items';
-// import app from './app/app';
+//Add new element to list
+var addNewElement = function addNewElement() {
+  var name = document.querySelector('.nameInput').value;
+  var id = document.querySelector('.idInput').value;
+  var item = { name: name, id: +id };
 
+  if (name === '' || id <= 0) {
+    alert('Add some text please, and id > 0');
+  } else {
+    items.push(item);
+    render(item);
+    document.querySelector('.nameInput').value = '';
+    document.querySelector('.idInput').value = '';
+  }
+};
+//Remove element from list
+var removeElement = function removeElement(ul, li) {
+  li.classList.add('remove');
+  setTimeout(function () {
+    return ul.removeChild(li);
+  }, 500);
+};
+//Checked element
+var isChecked = function isChecked(li) {
+  return li.classList.toggle('checked');
+};
 
 var App = function App() {
   _classCallCheck(this, App);
@@ -28,6 +51,8 @@ var App = function App() {
 
   addBtn.textContent = 'add';
   span.textContent = '+';
+
+  addBtn.addEventListener('click', addNewElement);
 
   form.appendChild(nameInput);
   form.appendChild(id);
@@ -53,29 +78,13 @@ var items = [{
   id: 2
 }];
 
-var deleteElement = function deleteElement(li) {
-  var ul = document.querySelector('.todo-list');
-
-  for (var i = 0; i < ul.childNodes.length; i++) {
-
-    if (ul.childNodes[i] === li) {
-      li.classList.add('remove');
-      setTimeout(function () {
-        return ul.removeChild(ul.childNodes[i]);
-      }, 500);
-      items.splice(i, 1);
-      break;
-    }
-  }
-};
-
 var render = function render(item) {
   var ul = document.querySelector('.todo-list');
   var li = document.createElement('li');
   var idBadge = document.createElement('span');
   var check = document.createElement('input');
   var checkLabel = document.createElement('label');
-  var deleteBtn = document.createElement('button');
+  var removeBtn = document.createElement('button');
 
   check.setAttribute('type', 'checkbox');
   check.setAttribute('name', 'check');
@@ -85,20 +94,24 @@ var render = function render(item) {
   idBadge.classList.add('badge');
   check.classList.add('check');
   checkLabel.classList.add('checkLabel');
-  deleteBtn.classList.add('deleteBtn');
+  removeBtn.classList.add('removeBtn');
 
-  deleteBtn.addEventListener('click', function () {
-    return deleteElement(li);
+  removeBtn.addEventListener('click', function () {
+    return removeElement(ul, li);
+  });
+  check.addEventListener('click', function () {
+    return isChecked(li);
   });
 
-  li.textContent = '' + item.name;
-  idBadge.textContent = '' + item.id;
-  deleteBtn.textContent = '\xD7';
+  li.textContent = item.name;
+  idBadge.textContent = item.id;
+  removeBtn.textContent = '\xD7';
 
   li.appendChild(idBadge);
   li.appendChild(check);
   li.appendChild(checkLabel);
-  li.appendChild(deleteBtn);
+  li.appendChild(removeBtn);
+
   setTimeout(function () {
     return ul.appendChild(li);
   }, 180);
@@ -107,49 +120,9 @@ var render = function render(item) {
   }, 200);
 };
 
-var defaultElements = function defaultElements() {
+//Default list
+(function () {
   for (var i = 0; i < items.length; i++) {
     render(items[i]);
   }
-};
-
-defaultElements();
-
-var addNewElement = function addNewElement() {
-  var name = document.querySelector('.nameInput').value;
-  var id = document.querySelector('.idInput').value;
-  var item = { name: name, id: +id };
-
-  if (name === '' || id <= 0) {
-    alert('Add some text please, and id > 0');
-  } else {
-    items.push(item);
-    render(item);
-    document.querySelector('.nameInput').value = '';
-    document.querySelector('.idInput').value = '';
-  }
-};
-
-var addBtn = document.querySelector('.addBtn');
-addBtn.addEventListener('click', addNewElement);
-
-setTimeout(function () {
-  var li = document.querySelectorAll('li');
-  var check = document.querySelectorAll('.check');
-  var isChecked = function isChecked(li) {
-    return li.classList.toggle('checked');
-  };
-
-  check[0].addEventListener('click', function () {
-    isChecked(li[0]);
-  });
-  check[1].addEventListener('click', function () {
-    isChecked(li[1]);
-  });
-  check[2].addEventListener('click', function () {
-    isChecked(li[2]);
-  });
-  check[3].addEventListener('click', function () {
-    isChecked(li[3]);
-  });
-}, 500);
+})();

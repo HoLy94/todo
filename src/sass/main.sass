@@ -72,7 +72,7 @@ ul.todo-list
     width: 90%
     label.checkLabel
       opacity: 1
-    button.deleteBtn
+    button.removeBtn
       opacity: 1
 
   li.add
@@ -94,7 +94,7 @@ ul.todo-list
     opacity: 1
     transform: translateX(0)
     position: relative
-    span.badge,button.deleteBtn
+    span.badge,button.removeBtn
       position: absolute
       top: 0
       width: 45px
@@ -124,7 +124,7 @@ ul.todo-list
       z-index: 10
       &:checked ~ label.checkLabel
         background-color: green
-    button.deleteBtn
+    button.removeBtn
       right: 0
       outline: none
       border: none
@@ -138,7 +138,7 @@ ul.todo-list
         transform: rotate(180deg)
     &:hover
       background-color: darken(rgb(66, 133, 244), 10%)
-      button.deleteBtn
+      button.removeBtn
         opacity: 1
       label.checkLabel
         opacity: 1
@@ -147,5 +147,5 @@ ul.todo-list
       border-bottom-left-radius: 10px
       span.badge
         border-bottom-left-radius: 10px
-      button.deleteBtn
+      button.removeBtn
         border-bottom-right-radius: 10px

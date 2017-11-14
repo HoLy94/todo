@@ -1,6 +1,24 @@
-// import items from './items';
-// import app from './app/app';
+//Add new element to list
+const addNewElement = () => {
+  let name = document.querySelector('.nameInput').value;
+  let id = document.querySelector('.idInput').value;
+  let item = { name: name, id: +id };
 
+  if (name === '' || id <= 0) { alert('Add some text please, and id > 0') }
+  else {
+    items.push(item);
+    render(item);
+    document.querySelector('.nameInput').value = '';
+    document.querySelector('.idInput').value = '';
+  }
+}
+//Remove element from list
+const removeElement = (ul,li) => {
+  li.classList.add('remove');
+  setTimeout( () => ul.removeChild(li), 500);
+}
+//Checked element
+const isChecked = (li) => li.classList.toggle('checked');
 
 class App {
 
@@ -24,6 +42,8 @@ class App {
 
   addBtn.textContent = 'add';
   span.textContent = '+';
+
+  addBtn.addEventListener('click', addNewElement);
 
   form.appendChild(nameInput);
   form.appendChild(id);
@@ -54,27 +74,13 @@ let items = [
   }
 ];
 
-const deleteElement = (li) => {
-  let ul = document.querySelector('.todo-list');
-
-  for (var i = 0; i < ul.childNodes.length; i++) {
-
-    if (ul.childNodes[i] === li) {
-      li.classList.add('remove');
-      setTimeout( () => ul.removeChild( ul.childNodes[i] ), 500);
-      items.splice(i,1);
-      break;
-    }
-  }
-}
-
 const render = (item) => {
   let ul = document.querySelector('.todo-list');
   let li = document.createElement('li');
   let idBadge = document.createElement('span');
   let check = document.createElement('input');
   let checkLabel = document.createElement('label');
-  let deleteBtn = document.createElement('button');
+  let removeBtn = document.createElement('button');
 
   check.setAttribute('type', 'checkbox');
   check.setAttribute('name', 'check');
@@ -84,54 +90,27 @@ const render = (item) => {
   idBadge.classList.add('badge');
   check.classList.add('check');
   checkLabel.classList.add('checkLabel');
-  deleteBtn.classList.add('deleteBtn');
+  removeBtn.classList.add('removeBtn');
 
-  deleteBtn.addEventListener('click', () => deleteElement(li) );
+  removeBtn.addEventListener('click', () => removeElement(ul,li) );
+  check.addEventListener('click', () => isChecked(li) );
 
-  li.textContent = `${item.name}`;
-  idBadge.textContent = `${item.id}`;
-  deleteBtn.textContent = '\u00D7';
+  li.textContent = item.name;
+  idBadge.textContent = item.id;
+  removeBtn.textContent = '\u00D7';
 
   li.appendChild(idBadge);
   li.appendChild(check);
   li.appendChild(checkLabel);
-  li.appendChild(deleteBtn);
+  li.appendChild(removeBtn);
+
   setTimeout( () => ul.appendChild(li), 180);
   setTimeout( () => li.removeAttribute('class', '.add'), 200);
 }
 
-const defaultElements = () => {
+//Default list
+(() => {
   for (let i = 0; i < items.length; i++) {
     render(items[i]);
   }
-}
-
-defaultElements();
-
-const addNewElement = () => {
-  let name = document.querySelector('.nameInput').value;
-  let id = document.querySelector('.idInput').value;
-  let item = { name: name, id: +id };
-
-  if (name === '' || id <= 0) { alert('Add some text please, and id > 0') }
-  else {
-    items.push(item);
-    render(item);
-    document.querySelector('.nameInput').value = '';
-    document.querySelector('.idInput').value = '';
-  }
-}
-
-let addBtn = document.querySelector('.addBtn');
-addBtn.addEventListener('click', addNewElement);
-
-setTimeout( () => {
-  let li = document.querySelectorAll('li');
-  let check = document.querySelectorAll('.check');
-  const isChecked = (li) => li.classList.toggle('checked');
-
-  check[0].addEventListener('click', function() {isChecked(li[0])} );
-  check[1].addEventListener('click', function() {isChecked(li[1])} );
-  check[2].addEventListener('click', function() {isChecked(li[2])} );
-  check[3].addEventListener('click', function() {isChecked(li[3])} );
-}, 500);
+})();

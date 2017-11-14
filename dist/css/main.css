@@ -110,7 +110,7 @@ ul.todo-list {
     width: 90%; }
     ul.todo-list li.checked label.checkLabel {
       opacity: 1; }
-    ul.todo-list li.checked button.deleteBtn {
+    ul.todo-list li.checked button.removeBtn {
       opacity: 1; }
   ul.todo-list li.add {
     opacity: 0;
@@ -139,7 +139,7 @@ ul.todo-list {
     -ms-transform: translateX(0);
     transform: translateX(0);
     position: relative; }
-    ul.todo-list li span.badge, ul.todo-list li button.deleteBtn {
+    ul.todo-list li span.badge, ul.todo-list li button.removeBtn {
       position: absolute;
       top: 0;
       width: 45px;
@@ -171,7 +171,7 @@ ul.todo-list {
       z-index: 10; }
       ul.todo-list li input.check:checked ~ label.checkLabel {
         background-color: green; }
-    ul.todo-list li button.deleteBtn {
+    ul.todo-list li button.removeBtn {
       right: 0;
       outline: none;
       border: none;
@@ -183,13 +183,13 @@ ul.todo-list {
       -o-transition: 0.5s;
       transition: 0.5s;
       opacity: 0; }
-      ul.todo-list li button.deleteBtn:hover {
+      ul.todo-list li button.removeBtn:hover {
         -webkit-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
         transform: rotate(180deg); }
     ul.todo-list li:hover {
       background-color: #1266f1; }
-      ul.todo-list li:hover button.deleteBtn {
+      ul.todo-list li:hover button.removeBtn {
         opacity: 1; }
       ul.todo-list li:hover label.checkLabel {
         opacity: 1; }
@@ -198,5 +198,5 @@ ul.todo-list {
       border-bottom-left-radius: 10px; }
       ul.todo-list li:last-child span.badge {
         border-bottom-left-radius: 10px; }
-      ul.todo-list li:last-child button.deleteBtn {
+      ul.todo-list li:last-child button.removeBtn {
         border-bottom-right-radius: 10px; }
