@@ -2,6 +2,21 @@
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+//Default list items
+var items = [{
+  name: 'Vasyl',
+  id: 5
+}, {
+  name: 'Anna',
+  id: 3
+}, {
+  name: 'Mike',
+  id: 8
+}, {
+  name: 'Alex',
+  id: 2
+}];
+
 //Add new element to list
 var addNewElement = function addNewElement() {
   var name = document.querySelector('.nameInput').value;
@@ -63,20 +78,6 @@ var App = function App() {
 };
 
 var app = new App();
-
-var items = [{
-  name: 'Vasyl',
-  id: 5
-}, {
-  name: 'Anna',
-  id: 3
-}, {
-  name: 'Mike',
-  id: 8
-}, {
-  name: 'Alex',
-  id: 2
-}];
 
 var render = function render(item) {
   var ul = document.querySelector('.todo-list');

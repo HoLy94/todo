@@ -1,3 +1,23 @@
+//Default list items
+let items = [
+  {
+    name: 'Vasyl',
+    id: 5,
+  },
+  {
+    name: 'Anna',
+    id: 3,
+  },
+  {
+    name: 'Mike',
+    id: 8,
+  },
+  {
+    name: 'Alex',
+    id: 2,
+  }
+];
+
 //Add new element to list
 const addNewElement = () => {
   let name = document.querySelector('.nameInput').value;
@@ -54,25 +74,6 @@ class App {
 }
 }
 const app = new App();
-
-let items = [
-  {
-    name: 'Vasyl',
-    id: 5,
-  },
-  {
-    name: 'Anna',
-    id: 3,
-  },
-  {
-    name: 'Mike',
-    id: 8,
-  },
-  {
-    name: 'Alex',
-    id: 2,
-  }
-];
 
 const render = (item) => {
   let ul = document.querySelector('.todo-list');
