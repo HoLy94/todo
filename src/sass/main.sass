@@ -48,11 +48,16 @@ button.addBtn, button.sortBtn
     transition: 0.5s
     position: absolute
     right: 10%
+    top: 0
+    line-height: 46px
+    font-size: 30px
+    transform: scale(0.3)
   &:hover
     background-color: darken(#4285f4, 10%)
     span
       right: 30%
       opacity: 1
+      transform: scale(1)
   &:active, &:focus
     outline: none
 button.addBtn
@@ -148,6 +153,8 @@ ul.todo-list
   height: 46px
   button.sortBtn
     width: 45px
+    padding-top: 8px
+    font-size: 40px
     border-bottom-left-radius: 10px
     background-color: #228b22
     &:hover

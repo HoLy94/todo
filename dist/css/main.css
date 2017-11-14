@@ -73,12 +73,21 @@ button.addBtn, button.sortBtn {
     -o-transition: 0.5s;
     transition: 0.5s;
     position: absolute;
-    right: 10%; }
+    right: 10%;
+    top: 0;
+    line-height: 46px;
+    font-size: 30px;
+    -webkit-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    transform: scale(0.3); }
   button.addBtn:hover, button.sortBtn:hover {
     background-color: #1266f1; }
     button.addBtn:hover span, button.sortBtn:hover span {
       right: 30%;
-      opacity: 1; }
+      opacity: 1;
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1); }
   button.addBtn:active, button.addBtn:focus, button.sortBtn:active, button.sortBtn:focus {
     outline: none; }
 
@@ -206,6 +215,8 @@ ul.todo-list {
   height: 46px; }
   .sortContainer button.sortBtn {
     width: 45px;
+    padding-top: 8px;
+    font-size: 40px;
     border-bottom-left-radius: 10px;
     background-color: #228b22; }
     .sortContainer button.sortBtn:hover {
