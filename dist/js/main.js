@@ -15,6 +15,18 @@ var items = [{
 }, {
   name: 'Alex',
   id: 2
+}, {
+  name: 'Alex',
+  id: 12
+}, {
+  name: 'Alex',
+  id: 4
+}, {
+  name: 'Alex',
+  id: 21
+}, {
+  name: 'Alex',
+  id: 19
 }];
 
 //Add new element to list
@@ -55,16 +67,21 @@ var App = function App() {
   var id = document.createElement('input');
   var addBtn = document.createElement('button');
   var span = document.createElement('span');
+  var sortContainer = document.createElement('div');
+  var sortBtn = document.createElement('button');
 
   list.classList.add('todo-list');
   form.classList.add('form');
   nameInput.classList.add('nameInput');
   id.classList.add('idInput');
   addBtn.classList.add('addBtn');
+  sortContainer.classList.add('sortContainer');
+  sortBtn.classList.add('sortBtn');
 
   id.setAttribute('type', 'number');
 
   addBtn.textContent = 'add';
+  sortBtn.textContent = '*';
   span.textContent = '+';
 
   addBtn.addEventListener('click', addNewElement);
@@ -73,8 +90,10 @@ var App = function App() {
   form.appendChild(id);
   addBtn.appendChild(span);
   form.appendChild(addBtn);
+  sortContainer.appendChild(sortBtn);
   container.appendChild(form);
   container.appendChild(list);
+  container.appendChild(sortContainer);
 };
 
 var app = new App();
@@ -131,3 +150,14 @@ var ListItem = function ListItem(item) {
     var defaultListItem = new ListItem(items[i]);
   }
 })();
+
+var sortById = function sortById() {
+  var li = document.querySelectorAll('li');
+
+  for (var i = 0; i < li.length; i++) {
+    li[i].setAttribute('style', 'order: ' + items[i].id);
+  }
+};
+
+var sortBtn = document.querySelector('.sortBtn');
+sortBtn.addEventListener('click', sortById);

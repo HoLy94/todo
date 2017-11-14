@@ -55,33 +55,36 @@ body {
       border-top-left-radius: 10px;
       width: 55%; }
 
-button.addBtn {
+button.addBtn, button.sortBtn {
   background-color: #4285f4;
-  width: 25%;
   border: none;
+  height: 100%;
   font-size: 20px;
   color: #fff;
   letter-spacing: 1px;
-  border-top-right-radius: 10px;
   cursor: pointer;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
   position: relative; }
-  button.addBtn span {
+  button.addBtn span, button.sortBtn span {
     opacity: 0;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
     position: absolute;
     right: 10%; }
-  button.addBtn:hover {
+  button.addBtn:hover, button.sortBtn:hover {
     background-color: #1266f1; }
-    button.addBtn:hover span {
+    button.addBtn:hover span, button.sortBtn:hover span {
       right: 30%;
       opacity: 1; }
-  button.addBtn:active, button.addBtn:focus {
+  button.addBtn:active, button.addBtn:focus, button.sortBtn:active, button.sortBtn:focus {
     outline: none; }
+
+button.addBtn {
+  width: 25%;
+  border-top-right-radius: 10px; }
 
 ul.todo-list {
   list-style: none;
@@ -185,9 +188,24 @@ ul.todo-list {
       ul.todo-list li:hover label.checkLabel {
         opacity: 1; }
     ul.todo-list li:last-child {
-      border-bottom-right-radius: 10px;
-      border-bottom-left-radius: 10px; }
-      ul.todo-list li:last-child span.badge {
-        border-bottom-left-radius: 10px; }
+      border-bottom-right-radius: 10px; }
       ul.todo-list li:last-child button.removeBtn {
         border-bottom-right-radius: 10px; }
+
+.sortContainer {
+  width: 90%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 46px; }
+  .sortContainer button.sortBtn {
+    width: 45px;
+    border-bottom-left-radius: 10px;
+    background-color: #228b22; }
+    .sortContainer button.sortBtn:hover {
+      background-color: #186218; }

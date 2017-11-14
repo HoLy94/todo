@@ -15,6 +15,22 @@ let items = [
   {
     name: 'Alex',
     id: 2,
+  },
+  {
+    name: 'Alex',
+    id: 12,
+  },
+  {
+    name: 'Alex',
+    id: 4,
+  },
+  {
+    name: 'Alex',
+    id: 21,
+  },
+  {
+    name: 'Alex',
+    id: 19,
   }
 ];
 
@@ -51,16 +67,21 @@ class App {
     let id = document.createElement('input');
     let addBtn = document.createElement('button');
     let span = document.createElement('span');
+    let sortContainer = document.createElement('div');
+    let sortBtn = document.createElement('button');
 
     list.classList.add('todo-list')
     form.classList.add('form');
     nameInput.classList.add('nameInput');
     id.classList.add('idInput');
     addBtn.classList.add('addBtn');
+    sortContainer.classList.add('sortContainer');
+    sortBtn.classList.add('sortBtn');
 
     id.setAttribute('type', 'number');
 
     addBtn.textContent = 'add';
+    sortBtn.textContent = '*';
     span.textContent = '+';
 
     addBtn.addEventListener('click', addNewElement);
@@ -69,8 +90,10 @@ class App {
     form.appendChild(id);
     addBtn.appendChild(span);
     form.appendChild(addBtn);
+    sortContainer.appendChild(sortBtn);
     container.appendChild(form);
     container.appendChild(list);
+    container.appendChild(sortContainer);
   }
 }
 const app = new App();
@@ -117,3 +140,15 @@ class ListItem {
     const defaultListItem = new ListItem(items[i]);
   }
 })();
+
+
+const sortById = () => {
+  let li = document.querySelectorAll('li');
+
+  for (var i = 0; i < li.length; i++) {
+    li[i].setAttribute('style', `order: ${items[i].id}`);
+  }
+}
+
+let sortBtn = document.querySelector('.sortBtn');
+sortBtn.addEventListener('click', sortById);

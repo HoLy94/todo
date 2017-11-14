@@ -29,18 +29,17 @@ body
       padding: 0 15px
       width: 15%
       &:focus
-        border-color: rgb(66, 133, 244)
+        border-color: #4285f4
     input.nameInput
       border-top-left-radius: 10px
       width: 55%
-button.addBtn
-  background-color: rgb(66, 133, 244)
-  width: 25%
+button.addBtn, button.sortBtn
+  background-color: #4285f4
   border: none
+  height: 100%
   font-size: 20px
   color: #fff
   letter-spacing: 1px
-  border-top-right-radius: 10px
   cursor: pointer
   transition: 0.5s
   position: relative
@@ -50,12 +49,15 @@ button.addBtn
     position: absolute
     right: 10%
   &:hover
-    background-color: darken(rgb(66, 133, 244), 10%)
+    background-color: darken(#4285f4, 10%)
     span
       right: 30%
       opacity: 1
   &:active, &:focus
     outline: none
+button.addBtn
+  width: 25%
+  border-top-right-radius: 10px
 
 ul.todo-list
   list-style: none
@@ -65,7 +67,7 @@ ul.todo-list
   align-items: center
   li.checked
     text-decoration: line-through
-    background-color: darken(rgb(66, 133, 244), 10%)
+    background-color: darken(#4285f4, 10%)
     width: 90%
     label.checkLabel
       opacity: 1
@@ -79,7 +81,7 @@ ul.todo-list
     transform: translateX(-100%)
   li
     color: #fff
-    background-color: rgb(66, 133, 244)
+    background-color: #4285f4
     width: 100%
     padding: 11.45px 5% 11.45px 55px
     margin: 1% 0
@@ -129,15 +131,23 @@ ul.todo-list
       &:hover
         transform: rotate(180deg)
     &:hover
-      background-color: darken(rgb(66, 133, 244), 10%)
+      background-color: darken(#4285f4, 10%)
       button.removeBtn
         opacity: 1
       label.checkLabel
         opacity: 1
     &:last-child
       border-bottom-right-radius: 10px
-      border-bottom-left-radius: 10px
-      span.badge
-        border-bottom-left-radius: 10px
       button.removeBtn
         border-bottom-right-radius: 10px
+.sortContainer
+  width: 90%
+  display: flex
+  justify-content: space-between
+  height: 46px
+  button.sortBtn
+    width: 45px
+    border-bottom-left-radius: 10px
+    background-color: #228b22
+    &:hover
+      background-color: darken(#228b22, 10%)
