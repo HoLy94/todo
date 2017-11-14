@@ -4,12 +4,13 @@
   box-sizing: border-box
 body
   background-color: #333
+  font-size: 20px
+  letter-spacing: 1px
 
 .container
   max-width: 1080px
   height: 100vh
   margin: 0 auto
-  padding: 0 25px
   display: flex
   justify-content: center
   align-items: center
@@ -18,16 +19,13 @@ body
     display: flex
     justify-content: space-between
     width: 90%
-    margin: 1% 0
     height: 46px
     input.nameInput, input.idInput
       border: 2px solid transparent
-      background-color: #fff
       color: #333
-      padding: 0 15px
-      outline: none
       font-size: 20px
       letter-spacing: 1px
+      padding: 0 15px
       width: 15%
       &:focus
         border-color: rgb(66, 133, 244)
@@ -35,16 +33,14 @@ body
       border-top-left-radius: 10px
       width: 55%
 button.addBtn
-  align-self: flex-end
   background-color: rgb(66, 133, 244)
-  font-size: 20px
   width: 25%
   border: none
+  font-size: 20px
   color: #fff
-  height: 100%
+  letter-spacing: 1px
   border-top-right-radius: 10px
   cursor: pointer
-  letter-spacing: 1px
   transition: 0.5s
   position: relative
   span
@@ -74,7 +70,6 @@ ul.todo-list
       opacity: 1
     button.removeBtn
       opacity: 1
-
   li.add
     opacity: 0
     transform: translateX(-100%)
@@ -84,11 +79,8 @@ ul.todo-list
   li
     color: #fff
     background-color: rgb(66, 133, 244)
-    font-size: 20px
-    letter-spacing: 1px
     width: 100%
-    height: 46px
-    padding: 11px 5% 11px 55px
+    padding: 11.45px 5% 11.45px 55px
     margin: 1% 0
     transition: 0.5s
     opacity: 1
@@ -100,7 +92,7 @@ ul.todo-list
       width: 45px
       height: 100%
       color: #fff
-      line-height: 45px
+      line-height: 46px
       text-align: center
     span.badge
       left: 0
@@ -109,10 +101,9 @@ ul.todo-list
       position: absolute
       width: 20px
       height: 20px
-      right: 45px
+      right: 50px
       cursor: pointer
       top: calc(50% - 10px)
-      margin: 0 10px
     label.checkLabel
       border-radius: 50%
       border: 2px solid #fff
@@ -126,7 +117,6 @@ ul.todo-list
         background-color: green
     button.removeBtn
       right: 0
-      outline: none
       border: none
       font-size: 35px
       color: #fff
