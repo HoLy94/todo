@@ -27,7 +27,7 @@ var addNewElement = function addNewElement() {
     alert('Add some text please, and id > 0');
   } else {
     items.push(item);
-    render(item);
+    var newListItem = new ListItem(item);
     document.querySelector('.nameInput').value = '';
     document.querySelector('.idInput').value = '';
   }
@@ -79,7 +79,9 @@ var App = function App() {
 
 var app = new App();
 
-var render = function render(item) {
+var ListItem = function ListItem(item) {
+  _classCallCheck(this, ListItem);
+
   var ul = document.querySelector('.todo-list');
   var li = document.createElement('li');
   var idBadge = document.createElement('span');
@@ -122,8 +124,10 @@ var render = function render(item) {
 };
 
 //Default list
+
+
 (function () {
   for (var i = 0; i < items.length; i++) {
-    render(items[i]);
+    var defaultListItem = new ListItem(items[i]);
   }
 })();
