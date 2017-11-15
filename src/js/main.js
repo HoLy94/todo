@@ -49,7 +49,7 @@ class App {
     const list = document.createElement('ul');
     const form = document.createElement('div');
     const nameInput = document.createElement('input');
-    const id = document.createElement('input');
+    const idInput = document.createElement('input');
     const addBtn = document.createElement('button');
     const span = document.createElement('span');
     const sortContainer = document.createElement('div');
@@ -59,12 +59,14 @@ class App {
     list.classList.add('todo-list')
     form.classList.add('form');
     nameInput.classList.add('nameInput');
-    id.classList.add('idInput');
+    idInput.classList.add('idInput');
     addBtn.classList.add('addBtn');
     sortContainer.classList.add('sortContainer');
     sortBtn.classList.add('sortBtn');
 
-    id.setAttribute('type', 'number');
+    nameInput.setAttribute('placeholder', 'Name');
+    idInput.setAttribute('placeholder', 'Id');
+    idInput.setAttribute('type', 'number');
 
     title.textContent = 'My list';
     addBtn.textContent = 'add';
@@ -74,7 +76,7 @@ class App {
     addBtn.addEventListener('click', addNewElement);
 
     form.appendChild(nameInput);
-    form.appendChild(id);
+    form.appendChild(idInput);
     addBtn.appendChild(span);
     form.appendChild(addBtn);
     sortContainer.appendChild(sortBtn);
