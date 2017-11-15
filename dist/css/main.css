@@ -30,6 +30,10 @@ body {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
+  .container .title {
+    color: #fff;
+    margin-bottom: 1%;
+    letter-spacing: 10px; }
   .container .form {
     display: -webkit-box;
     display: -webkit-flex;

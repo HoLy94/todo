@@ -49,25 +49,30 @@ var App = function App() {
 
   var container = document.querySelector('.container');
 
+  var title = document.createElement('h1');
   var list = document.createElement('ul');
   var form = document.createElement('div');
   var nameInput = document.createElement('input');
-  var id = document.createElement('input');
+  var idInput = document.createElement('input');
   var addBtn = document.createElement('button');
   var span = document.createElement('span');
   var sortContainer = document.createElement('div');
   var sortBtn = document.createElement('button');
 
+  title.classList.add('title');
   list.classList.add('todo-list');
   form.classList.add('form');
   nameInput.classList.add('nameInput');
-  id.classList.add('idInput');
+  idInput.classList.add('idInput');
   addBtn.classList.add('addBtn');
   sortContainer.classList.add('sortContainer');
   sortBtn.classList.add('sortBtn');
 
-  id.setAttribute('type', 'number');
+  nameInput.setAttribute('placeholder', 'Name');
+  idInput.setAttribute('placeholder', 'Id');
+  idInput.setAttribute('type', 'number');
 
+  title.textContent = 'My list';
   addBtn.textContent = 'add';
   sortBtn.textContent = '*';
   span.textContent = '+';
@@ -75,10 +80,11 @@ var App = function App() {
   addBtn.addEventListener('click', addNewElement);
 
   form.appendChild(nameInput);
-  form.appendChild(id);
+  form.appendChild(idInput);
   addBtn.appendChild(span);
   form.appendChild(addBtn);
   sortContainer.appendChild(sortBtn);
+  container.appendChild(title);
   container.appendChild(form);
   container.appendChild(list);
   container.appendChild(sortContainer);
