@@ -20,9 +20,9 @@ let items = [
 
 //Add new element to list
 const addNewElement = () => {
-  let name = document.querySelector('.nameInput').value;
-  let id = document.querySelector('.idInput').value;
-  let item = { name: name, id: +id };
+  const name = document.querySelector('.nameInput').value;
+  const id = document.querySelector('.idInput').value;
+  const item = { name, id: +id };
 
   if (name === '' || id <= 0) { alert('Add some text please, and id > 0') }
   else {
@@ -43,16 +43,16 @@ const isChecked = (li) => li.classList.toggle('checked');
 class App {
 
   constructor() {
-    let container = document.querySelector('.container');
+    const container = document.querySelector('.container');
 
-    let list = document.createElement('ul');
-    let form = document.createElement('div');
-    let nameInput = document.createElement('input');
-    let id = document.createElement('input');
-    let addBtn = document.createElement('button');
-    let span = document.createElement('span');
-    let sortContainer = document.createElement('div');
-    let sortBtn = document.createElement('button');
+    const list = document.createElement('ul');
+    const form = document.createElement('div');
+    const nameInput = document.createElement('input');
+    const id = document.createElement('input');
+    const addBtn = document.createElement('button');
+    const span = document.createElement('span');
+    const sortContainer = document.createElement('div');
+    const sortBtn = document.createElement('button');
 
     list.classList.add('todo-list')
     form.classList.add('form');
@@ -84,12 +84,12 @@ const app = new App();
 
 class ListItem {
   constructor (item) {
-    let ul = document.querySelector('.todo-list');
-    let li = document.createElement('li');
-    let idBadge = document.createElement('span');
-    let check = document.createElement('input');
-    let checkLabel = document.createElement('label');
-    let removeBtn = document.createElement('button');
+    const ul = document.querySelector('.todo-list');
+    const li = document.createElement('li');
+    const idBadge = document.createElement('span');
+    const check = document.createElement('input');
+    const checkLabel = document.createElement('label');
+    const removeBtn = document.createElement('button');
 
     check.setAttribute('type', 'checkbox');
     check.setAttribute('name', 'check');
@@ -127,12 +127,12 @@ class ListItem {
 
 
 const sortById = () => {
-  let li = document.querySelectorAll('li');
+  const li = document.querySelectorAll('li');
 
   for (var i = 0; i < li.length; i++) {
     li[i].style.order = items[i].id;
   }
 }
 
-let sortBtn = document.querySelector('.sortBtn');
+const sortBtn = document.querySelector('.sortBtn');
 sortBtn.addEventListener('click', sortById);
