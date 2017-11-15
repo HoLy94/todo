@@ -45,6 +45,7 @@ class App {
   constructor() {
     const container = document.querySelector('.container');
 
+    const title = document.createElement('h1');
     const list = document.createElement('ul');
     const form = document.createElement('div');
     const nameInput = document.createElement('input');
@@ -54,6 +55,7 @@ class App {
     const sortContainer = document.createElement('div');
     const sortBtn = document.createElement('button');
 
+    title.classList.add('title');
     list.classList.add('todo-list')
     form.classList.add('form');
     nameInput.classList.add('nameInput');
@@ -64,6 +66,7 @@ class App {
 
     id.setAttribute('type', 'number');
 
+    title.textContent = 'My list';
     addBtn.textContent = 'add';
     sortBtn.textContent = '*';
     span.textContent = '+';
@@ -75,6 +78,7 @@ class App {
     addBtn.appendChild(span);
     form.appendChild(addBtn);
     sortContainer.appendChild(sortBtn);
+    container.appendChild(title);
     container.appendChild(form);
     container.appendChild(list);
     container.appendChild(sortContainer);

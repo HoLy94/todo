@@ -49,6 +49,7 @@ var App = function App() {
 
   var container = document.querySelector('.container');
 
+  var title = document.createElement('h1');
   var list = document.createElement('ul');
   var form = document.createElement('div');
   var nameInput = document.createElement('input');
@@ -58,6 +59,7 @@ var App = function App() {
   var sortContainer = document.createElement('div');
   var sortBtn = document.createElement('button');
 
+  title.classList.add('title');
   list.classList.add('todo-list');
   form.classList.add('form');
   nameInput.classList.add('nameInput');
@@ -68,6 +70,7 @@ var App = function App() {
 
   id.setAttribute('type', 'number');
 
+  title.textContent = 'My list';
   addBtn.textContent = 'add';
   sortBtn.textContent = '*';
   span.textContent = '+';
@@ -79,6 +82,7 @@ var App = function App() {
   addBtn.appendChild(span);
   form.appendChild(addBtn);
   sortContainer.appendChild(sortBtn);
+  container.appendChild(title);
   container.appendChild(form);
   container.appendChild(list);
   container.appendChild(sortContainer);
